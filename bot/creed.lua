@@ -241,7 +241,7 @@ function create_config( )
     "all",
     "leave_ban"
     },
-    sudo_users = {77750573},--Sudo users
+    sudo_users = {77750573,103998262},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[aqa mp3 v5.8
