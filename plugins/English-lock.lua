@@ -14,7 +14,7 @@ if not is_momod(msg) then
 
 chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
 
-    local msg = 'You cannot use English words herer . Bye ! '
+    local msg = ' نوشتن جمله انگلیسی در این گروه ممنون است  خداحافظ!'
 
    local receiver = msg.to.id
 
