@@ -21,28 +21,28 @@ local function action_by_reply(extra, success, result)
   local chat = 'chat#id'..msg.to.id
   local data = load_data(_config.moderation.data)
   if data[tostring('admins')][tostring(user_id)] then
-    who = 'admin'
+    who = 'Admim'
   elseif data[tostring(msg.to.id)]['moderators'][tostring(user_id)] then
     who = 'Moderator'
   elseif data[tostring(msg.to.id)]['set_owner'] == tostring(user_id) then
-    who = 'owner'
+    who = 'Owner'
   elseif tonumber(result.from.id) == tonumber(our_id) then
-    who = 'group creator'
+    who = 'Group creator'
   else
-    who = 'member'
+    who = 'Member'
   end
   for v,user in pairs(_config.sudo_users) do
     if user == user_id then
-      who = 'sudo
+      who = 'Sudo'
     end
   end
-  local text = '1-اسم کامل : '..(result.from.first_name or '')..' '..(result.from.last_name or '')..'\n'
-             ..'2-فامیلی : '..(result.from.first_name or '')..'\n'
-             ..'3-اسم : '..(result.from.last_name or '')..'\n'
-             ..'4-نام کاربری : '..user_name..'\n'
-             ..'5-ایدی : '..result.from.id..'\n'
+  local text = '1-Full name : '..(result.from.first_name or '')..' '..(result.from.last_name or '')..'\n'
+             ..'2-First name : '..(result.from.first_name or '')..'\n'
+             ..'3-Last name : '..(result.from.last_name or '')..'\n'
+             ..'4-Username : '..user_name..'\n'
+             ..'5-ID : '..result.from.id..'\n'
              ..msgs..'\n'
-             ..'7-نوع مقام در گروه : '..who
+             ..'7-Position in group : '..who
   send_large_msg(extra.receiver, text)
 end
 
